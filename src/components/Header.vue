@@ -12,8 +12,8 @@
         <a id="home"> <router-link to="/community" exact>Community</router-link></a>
       </div>
       <div id='side' class="flexCol">
-        <router-link id='button1' tag="button" to="/" exact>Login</router-link>
-        <router-link id='button2' tag="button" to="/" exact>Sign Up</router-link>
+        <router-link id='button1' tag="button" to="/login" exact>Login</router-link>
+        <router-link id='button2' tag="button" to="/register" exact>Sign Up</router-link>
       </div>
     </nav>
     
