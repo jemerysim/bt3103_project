@@ -1,15 +1,15 @@
 <template>
   <div class="header">
     <nav class="flexWrap">
+        <router-link to="/" class="flexCol" exact>
+          <img id="logo" src="../assets/logo.png">
+        </router-link>
       <div class="flexCol">
-        <img id="logo" src="../assets/logo.png">
-      </div>
-      <div class="flexCol">
-        <a id="home"> <router-link to="/" exact>Home</router-link></a>
-        <a id="home"> <router-link to="/benefits" exact>Benefits</router-link></a>
-        <a id="home"> <router-link to="/charging" exact>Charging</router-link></a>
-        <a id="home"> <router-link to="/ownership" exact>Ownership</router-link></a>
-        <a id="home"> <router-link to="/community" exact>Community</router-link></a>
+        <a class="navbar-item"> <router-link to="/" exact>Home</router-link></a>
+        <a class="navbar-item"> <router-link to="/benefits" exact>Benefits</router-link></a>
+        <a class="navbar-item"> <router-link to="/charging" exact>Charging</router-link></a>
+        <a class="navbar-item"> <router-link to="/ownership" exact>Ownership</router-link></a>
+        <a class="navbar-item"> <router-link to="/community" exact>Community</router-link></a>
       </div>
       <div id='side' class="flexCol">
         <router-link id='button1' tag="button" to="/login" exact>Login</router-link>
@@ -74,24 +74,22 @@ a.router-link-active{
 
 button {
   margin: 8px;
-  background-color: white;
+  background-color: black;
   border-radius: 11px;
   border-style: solid;
   border-color: black;
   padding: 4px 18px;
   font-size: 15px;
-}
-#button1 {
-  background-color: black;
-  border-color: black;
+  display: inline-block;
   color: white; 
-}
-#button2 {
-  background-color: black;
-  border-color: black;
-  color: white; 
+
 }
 
+
+.navbar-item {
+  display: inline-block;
+  vertical-align: middle;
+}
 
 
 
