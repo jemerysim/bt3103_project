@@ -1,15 +1,20 @@
-import firebase from "firebase"
+import firebase from "firebase";
+import 'firebase/firestore';
+import 'firebase/auth';
+
+
 
 var firebaseConfig = {
-    apiKey: "AIzaSyAFbsBgPYKj8VRQvaUUwD6PyH5uT7JPaD0",
-    authDomain: "bt3103-week-6-fc1e6.firebaseapp.com",
-    projectId: "bt3103-week-6-fc1e6",
-    storageBucket: "bt3103-week-6-fc1e6.appspot.com",
-    messagingSenderId: "961975625243",
-    appId: "1:961975625243:web:ad7b19a57f2e5b2403fabe",
-    measurementId: "G-VG6Z2MN8KW"
+  apiKey: "AIzaSyAk9zigyNZkdwN1N44LUGr8hoJ9NYVBnUc",
+  authDomain: "bt3103-project-350ef.firebaseapp.com",
+  projectId: "bt3103-project-350ef",
+  storageBucket: "bt3103-project-350ef.appspot.com",
+  messagingSenderId: "745181053735",
+  appId: "1:745181053735:web:6ddbe6866f38d0ba039f02",
+  measurementId: "G-MVZTRNKYWF"
   };
 
 firebase.initializeApp(firebaseConfig);
+export const auth = firebase.auth();
 var database = firebase.firestore();
 export default database;
