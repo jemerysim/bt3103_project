@@ -5,12 +5,10 @@
             <input type="text" id="username" v-model="form.name">
             <label for="Email"> Email: </label>
             <input type="text" id="email" v-model="form.email">
-            *minimum 8 characters
              <div class="form-group" :class="{ 'form-group--error': $v.form.password.$error }">
             <label for ="Password"> Password: </label>
             <input type="text" id="password" v-model="form.password">
             </div>
-            <div class="error" v-if="!$v.form.password.required">Field is required</div>
             <div class="error" v-if="!$v.form.password.minLength">Password must have at least {{$v.form.password.$params.minLength.min}} letters.</div>
             <div class="form-group" :class="{ 'form-group--error': $v.form.passwordConfirm.$error }">
             <label for ="Confirm Password"> Confirm Password: </label>
@@ -28,7 +26,8 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import { auth } from "../firebase.js";
+import database from "../firebase.js";
 import { required, minLength, sameAs } from 'vuelidate/lib/validators'
 
 export default {
@@ -41,9 +40,10 @@ export default {
                 password: "",
                 passwordConfirm: "",
                 phoneNumber: "",
-                submitStatus: null
             },
+            submitStatus: "",
             error: null,
+            authUser: null,
         }
     },
     validations: {
@@ -66,22 +66,23 @@ export default {
             } else {
                 // do your submit logic here
             this.submitStatus = 'PENDING'
-            firebase.auth().createUserWithEmailAndPassword(this.form.email, this.form.password)
-            .then(data => {
-                data.user.updateProfile({
-                    displayName: this.form.name,
-                    phoneNumber: this.form.phoneNumber
-                })
-            .then(() => {});
-            })
-            .catch(err => {
+            auth.createUserWithEmailAndPassword(this.form.email, this.form.password).catch(err => {
                 this.error = err.message;
             });
+            database.collection('users').add({
+                name: this.form.name,
+                email: this.form.email,
+                phoneNumber: this.form.phoneNumber,
+                type: ['user'],
+            })
             setTimeout(() => {
                 this.submitStatus = 'OK'
                 }, 500)
             }
-        }
+        },
+    },
+    created() {
+        auth.onAuthStateChanged(user => {this.authUser = user })
     }
 }
 </script>
@@ -115,6 +116,14 @@ button {
   border: 0;
   outline: none;
   cursor: pointer;
+}
+.error {        
+    color: red;
+    font-size: 1.2rem;
+}
+.typo__p {
+    font-size: 1.2rem;
+    color:green;
 }
 .invalid.untouched ~ .error {
     display: none;

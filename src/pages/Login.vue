@@ -17,7 +17,7 @@
 
 </template>
 <script>
-import firebase from "firebase";
+import { auth}  from "../firebase.js";
 
 export default {
     name: 'Login',
@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         submit: function() {
-            firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password)
+            auth.signInWithEmailAndPassword(this.form.email, this.form.password)
             .then(() => {
                 this.$router.replace({ name: 'Home'})
                 })
