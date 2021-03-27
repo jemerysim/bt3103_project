@@ -5,6 +5,10 @@ import Ownership from './pages/Ownership.vue'
 import Community from './pages/Community.vue'
 import Register from './pages/Register.vue'
 import Login from './pages/Login.vue'
+import CommunityCategory from './pages/CommunityCategory.vue'
+import CommunityForum from './pages/CommunityForum.vue'
+
+
 
 
 export default [
@@ -14,5 +18,8 @@ export default [
   { name: "Ownership", path: '/ownership', component: Ownership, props: true},
   { name: "Community", path: '/community', component: Community },
   { name: "Register", path: '/register', component: Register },
-  { name: 'Login', path: '/login', component: Login }
+  { name: 'Login', path: '/login', component: Login },
+  { name: 'CommunityCategory', path: '/community/communityCategory', component: CommunityCategory, props: true },
+  { name: 'CommunityForum', path: '/community/communityForum', component: CommunityForum, props: true }
+
 ]

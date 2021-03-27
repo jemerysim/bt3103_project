@@ -34,12 +34,14 @@
 </script>
 
 <style scoped>
+
 .flexWrap {
   display: flex;
   overflow: hidden; 
   margin: 30px;
   border-bottom: 1px solid #000;
   /* background-color: #76C056; */
+  text-align: center;
 }
 .flexCol {
   box-sizing: border-box;
@@ -65,6 +67,7 @@
   text-decoration: none;
   font-size: 18px; 
   line-height: 40px;
+
 }
 a.router-link-active{
   text-decoration: underline;
@@ -82,6 +85,7 @@ button {
   font-size: 15px;
   display: inline-block;
   color: white; 
+  box-shadow: inset 0px 0px 0px 1.6px #13573e;
 
 }
 

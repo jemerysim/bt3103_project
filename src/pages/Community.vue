@@ -22,5 +22,6 @@ export default {
 .col-full {
   flex-basis: 98%;
   margin: 0 1%;
+  text-align: center;
 }
 </style>
