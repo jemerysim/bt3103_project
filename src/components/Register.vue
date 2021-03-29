@@ -17,7 +17,7 @@
             <div class="error" v-if="!$v.form.passwordConfirm.sameAsPassword">Passwords must be identical.</div>
             <label type="text" id="phoneNumber"> Phone Number: </label>
             <input type="text" id="phoneNumebr" v-model="form.phoneNumber">
-            <button type="submit" :disabled="submitStatus === 'PENDING'"> Regiser </button>
+            <button type="submit" :disabled="submitStatus === 'PENDING'"> Register </button>
             <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for signing up!</p>
             <p class="typo__p" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
             <p class="typo__p" v-if="submitStatus === 'PENDING'">Sending...</p>
@@ -73,17 +73,16 @@ export default {
                 name: this.form.name,
                 email: this.form.email,
                 phoneNumber: this.form.phoneNumber,
+                password: this.form.password,
                 type: ['user'],
             })
             setTimeout(() => {
                 this.submitStatus = 'OK'
+                this.$router.replace({ name: 'Dashboard'})
                 }, 500)
             }
         },
     },
-    created() {
-        auth.onAuthStateChanged(user => {this.authUser = user })
-    }
 }
 </script>
 
@@ -109,10 +108,8 @@ button {
   text-transform: uppercase;
   color: black;
   background: #76C056;;
-  padding: 1rem 10px;
-  margin-top: 40px;
-  margin-bottom:40px;
-  margin-left: 800px;
+  padding: 10px 10px;
+  margin: 30px auto;
   border: 0;
   outline: none;
   cursor: pointer;

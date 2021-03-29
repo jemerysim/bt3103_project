@@ -15,6 +15,14 @@ export default {
   components: {
     Footer,
     Header
+  },
+  methods: {
+    setUser() {
+      this.$store.dispatch("setUser");
+    }
+  },
+  created(){
+    this.setUser();
   }
 }
 </script>

@@ -27,14 +27,14 @@ export default {
                 email: "",
                 password: ""
             },
-            error: null
+            error: null,
         };
     },
     methods: {
         submit: function() {
             auth.signInWithEmailAndPassword(this.form.email, this.form.password)
             .then(() => {
-                this.$router.replace({ name: 'Home'})
+                this.$router.replace({ name: 'Dashboard'})
                 })
             .catch(err => {
                 this.error = err.message;
@@ -43,7 +43,7 @@ export default {
         route: function() {
             this.$router.push({ name: 'Register' })
         }
-    }
+    },
 }
 </script>
 <style scoped>
@@ -68,10 +68,8 @@ button {
   text-transform: uppercase;
   color: black;
   background: #76C056;;
-  padding: 1rem 10px;
-  margin-top: 35px;
-  margin-bottom:40px;
-  margin-left: 800px;
+  padding: 10px 10px;
+  margin: 30px auto;
   border: 0;
   outline: none;
   cursor: pointer;
