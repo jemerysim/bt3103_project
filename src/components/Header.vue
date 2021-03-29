@@ -11,26 +11,35 @@
         <a id="home"> <router-link to="/ownership" exact>Ownership</router-link></a>
         <a id="home"> <router-link to="/community" exact>Community</router-link></a>
       </div>
-      <div id='side' class="flexCol">
-        <router-link id='button1' tag="button" to="/login" exact>Login</router-link>
-        <router-link id='button2' tag="button" to="/register" exact>Sign Up</router-link>
-      </div>
+        <router-link id='button1' tag="button" to="/login" v-if="!user" exact>Login</router-link>
+        <router-link id='button2' tag="button" to="/register" v-if="!user" exact>Sign Up</router-link>
+        <router-link to="/dashboard" v-if="user"> Dashboard </router-link>
+        <button @click="signOut" v-if="user"> Sign-out </button>
     </nav>
     
   </div>
 </template>
 
 <script>
+import { auth } from "../firebase.js";
+
   export default {
     components: {
     },
-    data() {
-      return {  
+    computed: {
+      user() {
+        return this.$store.getters.getUser;
       }
     },
     methods: {
-    }
+      signOut: function() {
+        auth.signOut().then(() => {
+          this.$router.replace({ name: 'Home'});
+        });
+      },
+    },
   }
+
 </script>
 
 <style scoped>

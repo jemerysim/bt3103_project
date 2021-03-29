@@ -5,7 +5,7 @@ import Ownership from './components/Ownership.vue'
 import Community from './components/Community.vue'
 import Register from './components/Register.vue'
 import Login from './components/Login.vue'
-
+import Dashboard from './components/Dashboard.vue'
 
 export default [
   { name: "Home", path: '/', component: Home },
@@ -14,5 +14,6 @@ export default [
   { name: "Ownership", path: '/ownership', component: Ownership, props: true},
   { name: "Community", path: '/community', component: Community },
   { name: "Register", path: '/register', component: Register },
-  { name: 'Login', path: '/login', component: Login }
+  { name: 'Login', path: '/login', component: Login },
+  { name: 'Dashboard', path: '/dashboard', component: Dashboard , props: true}
 ]
