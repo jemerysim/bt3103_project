@@ -1,24 +1,22 @@
 <template>
   <div class="col-full">
-    <h1 class="heading-title">{{ category }}
+    <h1 class="heading-title">
+      {{ category }}
     </h1>
-    <router-link class='thread-button' tag="button" to="/register" exact>Start a new thread</router-link>
-    
+    <router-link class='thread-button' tag="button" to="/register" exact>
+      Start a new thread
+    </router-link>
     <h3 class="list-title">
       <a>Threads</a>
     </h3>
     
-      <ul id="list-threads">   
-     <li v-for="obj in categoryForums" v-bind:key='obj' class='subject-header'>
-    
+    <ul class="forum-list">   
+     <li v-for="obj in categoryForums" v-bind:key='obj' class='forum-listing'>
       <router-link :to="{name: 'CommunityForum', params: {category: category, forums: obj}}">
         {{ obj.Subject }}
-
       </router-link>
-
-
      </li>
-      </ul>
+    </ul>
 
   </div>
 </template>
@@ -78,11 +76,6 @@
 </script>
 
 <style scoped>
-
-li a {
-    text-decoration: none;
-    color: inherit;
-}
 .thread-button {
   float: right;
   color: black;
@@ -93,24 +86,10 @@ li a {
   border: none;
   transition: all 0.4s ease;
 }
+
 .thread-button:hover {
   color: white;
 }
-
-.subject-header {
-  border-bottom-left-radius: 20px;
-  color: rgb(96, 168, 111);
-  font-weight: 100;
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  position: relative;
-  padding: 10px 20px;
-  margin: 0;
-}
-.subject-header a:hover {
-  color: #89c6af;
-} 
 
 .heading-title {
   border-bottom-left-radius: 20px;
@@ -137,5 +116,37 @@ li a {
   margin: 0;
 }
 
+.forum-list {
+  padding: 0;
+  background: white;
+  /* margin: 20px 0; */
+}
+
+.forum-list .forum-listing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px 20px 30px;
+  color: rgb(96, 168, 111);
+}
+
+.forum-list .forum-listing:nth-child(odd) {
+  background: rgba(73, 89, 96, 0.06);
+  border-bottom-left-radius: 20px;
+}
+
+.forum-list .forum-listing:last-child {
+  border-bottom-left-radius: 20px;
+}
+
+.forum-list .forum-listing a:hover {
+  color: #89c6af;
+} 
+
+li a {
+    text-decoration: none;
+    color: inherit;
+}
 
 </style>

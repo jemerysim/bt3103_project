@@ -4,30 +4,25 @@
     </h1>
     
     
-      <a>By {{forums.User}}, x years ago</a>
+      <a class="heading-user">By {{forums.User}}, x years ago</a>
     
     
 
       <ul id="list-replies">   
-    <!-- <li>
-        {{  forums   }}
-     </li> -->
-     <li class='reply-li'>
-        <a class="user">{{forums.User}}:</a>
-        <a class="reply">{{forums.Message}}</a>
-        <a class="reply-time">{{forums.Timestamp}}</a>
-     </li>
-
-     <li v-for="reply in forums.replies" v-bind:key='reply' class='reply-li'>
-    
-        <a class="user">{{reply.user}}:</a>
-        <a class="reply">{{reply.text}}</a>
-        <a class="reply-time">{{forums.Timestamp}}</a> 
-        <!-- edit the timestamp!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-     </li>
-
+        <li class='reply-li'>
+          <a class="user">{{forums.User}}:</a>
+          <a class="reply">{{forums.Message}}</a>
+          <a class="reply-time">{{forums.Timestamp}}</a>
+        </li>
+        <li v-for="reply in forums.replies" v-bind:key='reply' class='reply-li'>
+          <a class="user">{{reply.User}}:</a>
+          <a class="reply">{{reply.Message}}</a>
+          <a class="reply-time">{{forums.Timestamp}}</a> 
+          <!-- edit the timestamp!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        </li>
       </ul>
 
+      <!-- add in reply to forum text box -->
   </div>
 </template>
 
@@ -57,26 +52,51 @@
 </script>
 
 <style scoped>
-.reply-li {
+
+.heading-title {
   border-bottom-left-radius: 20px;
+  color: #263959;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  padding: 10px 20px;
+  margin: 0;
+}
+.heading-user {
+  border-bottom-left-radius: 20px;
+  color: #263959;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.reply-li {
+  border-bottom-left-radius: 0px;
   font-weight: 100;
   display: flex;
   width: 100%;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   position: relative;
-  padding: 10px 50px;
-  border-bottom: 5px solid darkcyan;
+  padding: 5px;
+  border-bottom: 3px solid darkcyan;
   margin: 0;
 }
 
 .user {
-  background-color: white;
+  background-color: rgba(32, 178, 171, 0.185);
   padding: 10px 20px;
   margin-bottom: 50px;
   box-shadow: 2px 2px 1px rgba(136, 136, 136, 0.09);
-  display: flex;
-  color: rgb(96, 168, 111);
+  color: rgb(36, 58, 41);
   font-weight: 100;
+}
+.reply {
+  font-weight: 100;
+  width: 100%;
+  padding: 10px 20px;
+  margin: 0;
 }
 
 .reply-time { 
@@ -86,7 +106,6 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-end;
-  /* display: inline-block; */
 }
 
 </style>
