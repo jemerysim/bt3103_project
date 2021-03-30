@@ -8,6 +8,16 @@
             <input type="text" id="password" v-model="form.password">
             <button type="submit"> Log In </button>
             <button type="button"> Forgot Password </button>
+                <Modal v-show="modalVisible" @close="closeModal">
+                <template v-slot:header>
+                    Type in your email below and a link to reset your password will be sent.
+                </template>
+                <template v-slot:body>
+                    <label for="emailForget"> Email: </label>
+                    <input type="text" id="emailForget" v-model="forgetEmail">
+                    <button v-on:click="sendPasswordConfirm()"> Confirm </button>
+                </template>
+                </Modal>
         </form>  
         <div class="space">
             Not a member yet? Click below to Signup for exclusive perks!
@@ -18,9 +28,13 @@
 </template>
 <script>
 import { auth}  from "../firebase.js";
+import Modal from "./Modal.vue";
 
 export default {
     name: 'Login',
+    components: {
+        Modal,
+    },
     data() {
         return {
             form: {
@@ -28,6 +42,9 @@ export default {
                 password: ""
             },
             error: null,
+            modalVisible: false,
+            forgetEmail: "",
+            emailSending : false,
         };
     },
     methods: {
@@ -42,7 +59,26 @@ export default {
         },
         route: function() {
             this.$router.push({ name: 'Register' })
-        }
+        },
+        showModal: function() {
+            this.modalVisible = true;
+        },
+        hideModal: function() {
+            this.modalVisible = false;
+        },
+        sendPassordConfirm: function() {
+            if (!this.forgetEmail) {
+                this.error = "Please type in a valid email address.";
+                return;
+            }
+            auth.sendPasswordResetEmail(this.forgetEmail).then(() => {
+                this.emailSending = true;
+            })
+            .catch(error => {
+                this.emailSending = false;
+                this.error = error.message;
+            });
+        },
     },
 }
 </script>
