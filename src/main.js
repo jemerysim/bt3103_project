@@ -18,12 +18,6 @@ import VueHorizontal from "vue-horizontal";
 Vue.component(VueHorizontal)
 
 
-<<<<<<< HEAD
-new Vue({
-  render: h => h(App),
-  router:myRouter,
-}).$mount('#app')
-=======
 auth.onAuthStateChanged(() => {
   new Vue({
     render: h => h(App),
@@ -31,4 +25,3 @@ auth.onAuthStateChanged(() => {
     store: store,
   }).$mount('#app')
 })
->>>>>>> d3ee938c39a507d681fff45593f496201e8d98b9

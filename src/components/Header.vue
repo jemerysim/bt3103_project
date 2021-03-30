@@ -11,10 +11,12 @@
         <a class="navbar-item"> <router-link to="/ownership" exact>Ownership</router-link></a>
         <a class="navbar-item"> <router-link to="/community" exact>Community</router-link></a>
       </div>
-        <router-link id='button1' tag="button" to="/login" v-if="!user" exact>Login</router-link>
-        <router-link id='button2' tag="button" to="/register" v-if="!user" exact>Sign Up</router-link>
+      <div class="flexCol">
+        <router-link tag="button" to="/login" v-if="!user" exact>Login</router-link>
+        <router-link tag="button" to="/register" v-if="!user" exact>Sign Up</router-link>
         <router-link to="/dashboard" v-if="user"> Dashboard </router-link>
         <button @click="signOut" v-if="user"> Sign-out </button>
+      </div>
     </nav>
     
   </div>
@@ -49,15 +51,13 @@ import { auth } from "../firebase.js";
   overflow: hidden; 
   margin: 30px;
   border-bottom: 1px solid #000;
-  /* background-color: #76C056; */
   text-align: center;
 }
 .flexCol {
   box-sizing: border-box;
-  padding: 10px;
+  /* padding: 10px; */
   width: 33.3%;
 }
-
 
 #logo {
   line-height: 10px;
@@ -90,14 +90,13 @@ button {
   border-radius: 11px;
   border-style: solid;
   border-color: black;
-  padding: 4px 18px;
+  padding:  10px 24px;
   font-size: 15px;
   display: inline-block;
   color: white; 
   box-shadow: inset 0px 0px 0px 1.6px #13573e;
 
 }
-
 
 .navbar-item {
   display: inline-block;
