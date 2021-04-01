@@ -7,28 +7,28 @@
             <label for ="Passowrd"> Password: </label>
             <input type="text" id="password" v-model="form.password">
             <button type="submit"> Log In </button>
-            <button type="button"> Forgot Password </button>
-                <Modal v-show="modalVisible" @close="closeModal">
+            <button type="button" v-on:click="showModal()"> Forgot Password </button>
+                <Modal v-show="modalVisible" @close="hideModal">
                 <template v-slot:header>
                     Type in your email below and a link to reset your password will be sent.
                 </template>
                 <template v-slot:body>
                     <label for="emailForget"> Email: </label>
-                    <input type="text" id="emailForget" v-model="forgetEmail">
-                    <button v-on:click="sendPasswordConfirm()"> Confirm </button>
+                    <input type="email" id="emailForget" v-model="forgetEmail">
+                    <button v-on:click="sendPassordConfirm()"> Confirm </button>
                 </template>
                 </Modal>
         </form>  
         <div class="space">
-            Not a member yet? Click below to Signup for exclusive perks!
+           <p>  Not a member yet? Click below to Signup for exclusive perks! </p>
             <button type="button" v-on:click="route()"> Signup </button>
         </div>
     </div>
 
 </template>
 <script>
-import { auth}  from "../firebase.js";
-import Modal from "./Modal.vue";
+import { auth }  from "../firebase.js";
+import Modal from '../components/Modal';
 
 export default {
     name: 'Login',
@@ -71,8 +71,12 @@ export default {
                 this.error = "Please type in a valid email address.";
                 return;
             }
+            this.error = null;
+            this.emailSending = true;
             auth.sendPasswordResetEmail(this.forgetEmail).then(() => {
-                this.emailSending = true;
+                this.emailSending = false;
+                alert("Check your email!");
+                this.hideModal()
             })
             .catch(error => {
                 this.emailSending = false;
@@ -83,6 +87,10 @@ export default {
 }
 </script>
 <style scoped>
+label {
+    font-size: 1.5rem;
+    padding-left: 250px;
+}
 input {
     display: block;
     width: 50%;

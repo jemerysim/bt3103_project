@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <h2> Welcome! {{ this.name }} </h2>
-    <div class="userinfo">
+    <div class="largeBox">
         <div class="box">
         <p> Email: {{ this.email }} </p>
         <p> Password:{{ this.password }} </p>
@@ -19,7 +19,10 @@
                 </Modal>
         </div>
     </div>
-    <div class="activities">
+    <div class="largeBox">
+        <div class="box">
+        <h4> Your Activity </h4>
+        </div>
     </div>
 </div>
 </template>
@@ -77,7 +80,7 @@ export default {
         },
         closeModal: function() {
             this.modalVisible = false;
-        }
+        },
     },
     created() {
         this.fetchUserInfo(this.user)
@@ -87,7 +90,7 @@ export default {
 </script>
 
 <style scoped>
-.userinfo {
+.largeBox {
     display: flex;
     height: 500px;
     border: black 2px solid;

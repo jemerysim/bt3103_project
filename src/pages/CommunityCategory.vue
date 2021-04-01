@@ -12,7 +12,7 @@
     
     <ul class="forum-list">   
      <li v-for="obj in categoryForums" v-bind:key='obj' class='forum-listing'>
-      <router-link :to="{name: 'CommunityForum', params: {category: category, forums: obj}}">
+      <router-link :to="{name: 'CommunityForum', params: {category: categoryS, forums: obj}}">
         {{ obj.Subject }}
       </router-link>
      </li>
@@ -22,7 +22,6 @@
 </template>
 
 <script>
-  import database from './../firebase.js'
 
   export default {
     components: {
@@ -33,44 +32,26 @@
         type: String
       }
     },
-    data(){
-      return{
-        categoryForums: []
-      }
+    computed: {
+      categoryS() {
+            return this.$store.getters.getCategoryS;
+      },
+      categoryForums() {
+          return this.$store.getters.getCategoryForums;
+      },
     },
     methods: {
-      getCategoryForums () {
-        database.collection('forum').doc(this.category)
-        .collection('threads').get()
-        .then((querySnapShot)=> {
-          querySnapShot.forEach(doc => {
-            var thread_id = doc.id
-            var main_msg = doc.data()
-            main_msg['thread_id'] = thread_id
-            main_msg['replies'] = []
-
-            database.collection('forum').doc(this.category)
-              .collection('threads').doc(thread_id)
-              .collection('replies').get()
-              .then((querySnapShot)=> {
-                querySnapShot.forEach(doc1 => {
-                  main_msg['replies'].push(doc1.data())
-
-                })
-              })
-              // console.log(main_msg)
-            this.categoryForums.push(main_msg);
-          
-          })
-        })
-        
-
-      // console.log(this.categoryForums)
-        // return this.categoryForums
-      }
+      setCategoryForums() {
+        this.$store.dispatch("setCategoryForums");
+      },
+      setCurCategory() {
+        console.log(this.category)
+        this.$store.dispatch("setCurCategory", this.category)
+      },
     },
-    created: function() {
-        this.getCategoryForums()
+    created() {
+      this.setCurCategory();
+      this.setCategoryForums();
     }
   }
 </script>

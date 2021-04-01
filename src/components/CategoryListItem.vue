@@ -18,10 +18,8 @@
         type: String
       }
     },
-    components: {
-    },
-    
-  }
+
+    }
 </script>
 
 <style scoped>

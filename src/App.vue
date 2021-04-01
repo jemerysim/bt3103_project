@@ -19,10 +19,15 @@ export default {
   methods: {
     setUser() {
       this.$store.dispatch("setUser");
-    }
+    },
+    setCategories() {
+      this.$store.dispatch("setCategories");
+    },
+
   },
   created(){
     this.setUser();
+    this.setCategories();
   }
 }
 </script>
