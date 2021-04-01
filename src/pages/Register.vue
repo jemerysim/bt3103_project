@@ -40,6 +40,7 @@ export default {
                 password: "",
                 passwordConfirm: "",
                 phoneNumber: "",
+                savedLocations:"",
             },
             submitStatus: "",
             error: null,
