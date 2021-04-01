@@ -76,6 +76,7 @@ export default {
                 password: this.form.password,
                 type: ['user'],
             })
+            auth.signInWithEmailAndPassword(this.form.email, this.form.password);
             setTimeout(() => {
                 this.submitStatus = 'OK'
                 this.$router.replace({ name: 'Dashboard'})

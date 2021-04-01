@@ -21,7 +21,28 @@
     </div>
     <div class="largeBox">
         <div class="box">
-        <h4> Your Activity </h4>
+        <h4> Your Saved Locations </h4>
+            <ul class>   
+            <li v-for="loc in savedLocations" v-bind:key='loc' class="location-list">
+                <p> Address: {{ loc.address }} </p>
+                <p> Name:  {{ loc.name }} </p>
+                <p> Postal Code: {{ loc.postalCode}} </p>
+             </li>
+            </ul>
+        </div>
+    </div>
+    <div class="largeBox">
+        <div class="box">
+            <h4> Add a Location </h4>
+            <form action="#" @submit.prevent="submit">
+                <label for="location_name"> Location Name: </label>
+                <input type="text" id="name" v-model="addLocation.name">
+                <label for ="postal_code"> Postal Code: </label>
+                <input type="text" id="postalCode" v-model="addLocation.postalCode">
+                <label for="address"> Address: </label>
+                <input type="text" id="address" v-model="addLocation.address">
+                <button type="submit"> Add  </button>
+            </form>
         </div>
     </div>
 </div>
@@ -49,7 +70,9 @@ export default {
             password: null,
             phoneNumber : '',
             update_phoneNumber: '',
-            modalVisible: false
+            modalVisible: false,
+            savedLocations: [],
+            addLocation: {'address': '', 'name': '', 'postalCode': '' }
         }
     },
     methods: {
@@ -70,10 +93,22 @@ export default {
                     
                 })
         },
+        fetchLocation: function(user) {
+            database.collection('users').get()
+                .then((querySnapshot) => {
+                    let item = {}
+                    querySnapshot.forEach((doc) => {
+                        item = doc.data()
+                        if (item.email == user.email) {
+                            this.savedLocations = item.savedLocations;
+                        }
+                    })
+                })
+        },
         updatePhoneNumber: function(doc_id) {
             database.collection('users').doc(doc_id).update({
                 'phoneNumber': this.update_phoneNumber
-            })
+            }).then(() => { location.reload() })
         },
         showModal: function() {
             this.modalVisible = true;
@@ -81,22 +116,28 @@ export default {
         closeModal: function() {
             this.modalVisible = false;
         },
+        submit: function() {
+            this.savedLocations.push(this.addLocation);
+            database.collection('users').doc(this.doc_id).update({savedLocations : this.savedLocations }).then(() => { location.reload() })
+
+        }
     },
     created() {
         this.fetchUserInfo(this.user)
+        this.fetchLocation(this.user)
     }
 }
 
 </script>
 
 <style scoped>
-.largeBox {
+/* .largeBox {
     display: flex;
     height: 500px;
     border: black 2px solid;
-}
+} */
 .box {
-    display: inline-block;
+    display: block;
     width: 50%;
     font-size: 2rem;
     line-height: 1;
@@ -105,11 +146,38 @@ export default {
     border: 1px solid #76C056;;
     outline: none;
 }
+.location-list {
+    display: block;
+    width: 80%;
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 400;
+    text-align: left;
+    padding: 10px 10px;
+    margin: 50px auto;
+    border: 1px solid #76C056;;
+    outline: none;
+}
 p {
     margin: 30px;
-    border: 2px black solid;
+    
 }
-
+label {
+    font-size: 1.5rem;
+    padding-left: 250px;
+}
+input {
+    display: block;
+    width: 50%;
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 400;
+    text-align: left;
+    padding: 10px 10px;
+    margin: 10px auto;
+    border: 1px solid #76C056;;
+    outline: none;
+}
 button {
 display: block;
   width: 30%;
