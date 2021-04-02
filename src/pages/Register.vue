@@ -115,6 +115,8 @@ button {
   border: 0;
   outline: none;
   cursor: pointer;
+    border-radius: 5px;
+
 }
 .error {        
     color: red;

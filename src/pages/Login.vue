@@ -117,5 +117,10 @@ button {
   border: 0;
   outline: none;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+p {
+    text-align: center;
 }
 </style>
