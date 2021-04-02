@@ -26,7 +26,7 @@
   </div>
 
   <div class='partner_content'>
-    <h2>Supported by the World's Best EV Manufacturers</h2>
+    <h2 class='subheader'>Supported by the World's Best EV Manufacturers</h2>
     <vue-horizontal class='partner_content'>
       <img class="logos" src="../assets/tesla_logo.png">
       <img class="logos" src="../assets/bmw_logo.png">
@@ -67,21 +67,29 @@ export default {
   padding: 10px;
 }
 
+.subheader {
+  margin: auto;
+  text-align: center;
+}
+
 .partner_content {
   margin: auto;
-  width: 80%;
+  width: 100%;
   padding: 10px;
+  justify-content: center;
+  
 }
 .logos {
   line-height: 10px;
-  width: 200px;
-  float: left;
+  width: 150px;
+  justify-content: center;
+  
 }
 
 
 .headertext{
     font-size: 35px;
-    color: red;
+    color: black;
     text-align: center;
     position: relative;
     top:30px;
