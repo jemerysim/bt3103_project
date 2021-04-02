@@ -3,13 +3,16 @@
     <h1 class="heading-title">
       {{ category }}
     </h1>
-    <router-link class='thread-button' tag="button" to="/register" exact>
+    <router-link class='thread-button' 
+    tag="button" 
+    v-on:click="route($event)"
+    :to="{name: 'CommunityNewThread', params: {category: category}}">
       Start a new thread
     </router-link>
     <h3 class="list-title">
       <a>Threads</a>
     </h3>
-    
+
     <ul class="forum-list">   
      <li v-for="obj in categoryForums" v-bind:key='obj' class='forum-listing'>
       <router-link :to="{name: 'CommunityForum', params: {category: category, forums: obj}}">
@@ -17,7 +20,6 @@
       </router-link>
      </li>
     </ul>
-
   </div>
 </template>
 
@@ -25,7 +27,10 @@
   import database from './../firebase.js'
 
   export default {
-    components: {
+    computed: {
+      get_cat() {  
+        return this.$store.state.stored_cat
+      }
     },
     props: {
       category: {
@@ -35,10 +40,11 @@
     },
     data(){
       return{
-        categoryForums: []
+        categoryForums: [],
       }
     },
     methods: {
+
       getCategoryForums () {
         database.collection('forum').doc(this.category)
         .collection('threads').get()
@@ -55,18 +61,11 @@
               .then((querySnapShot)=> {
                 querySnapShot.forEach(doc1 => {
                   main_msg['replies'].push(doc1.data())
-
                 })
               })
-              // console.log(main_msg)
-            this.categoryForums.push(main_msg);
-          
+            this.categoryForums.push(main_msg);          
           })
         })
-        
-
-      // console.log(this.categoryForums)
-        // return this.categoryForums
       }
     },
     created: function() {
@@ -85,6 +84,7 @@
   border-radius: 5px;
   border: none;
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 
 .thread-button:hover {
