@@ -102,7 +102,7 @@ input {
     outline: none;
 }
 button {
-  display: block;
+ display: block;
   width: 30%;
   font-size: 1.5rem;
   line-height: 1;
@@ -115,8 +115,7 @@ button {
   border: 0;
   outline: none;
   cursor: pointer;
-    border-radius: 5px;
-
+  border-radius: 5px;
 }
 .error {        
     color: red;

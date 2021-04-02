@@ -95,6 +95,7 @@ button {
   display: inline-block;
   color: white; 
   box-shadow: inset 0px 0px 0px 1.6px #13573e;
+    cursor: pointer;
 
 }
 

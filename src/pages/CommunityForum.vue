@@ -4,39 +4,78 @@
     </h1>
   
       <a class="heading-user">Created by {{forums.User}}, on {{returnDate(forums.Timestamp)}} </a>
-
       <ul id="list-replies">   
         <li class='reply-li'>
           <a class="user">{{forums.User}}:</a>
           <a class="reply">{{forums.Message}}</a>
           <a class="reply-time">{{returnDate(forums.Timestamp)}}</a>
+
         </li>
-        <li v-for="reply in forums.replies" v-bind:key='reply' class='reply-li'>
+        <li v-for="reply in forums.replies.sort((b,a) => b.Timestamp - a.Timestamp)" v-bind:key='reply' class='reply-li'>
           <a class="user">{{reply.User}}:</a>
           <a class="reply">{{reply.Message}}</a>
           <a class="reply-time">{{returnDate(reply.Timestamp)}}</a> 
         </li>
       </ul>
 
-      <form  class='reply-form'>
+      <form v-if="user" class='reply-form'>
         <label>Got something to say? Write a reply: </label>
-        <textarea rows="5" class="msg" placeholder="What do you want to say?"/>
+        <textarea rows="5" class="msg" v-model='msg' placeholder="What do you want to say?"/>
         <br><br>
-        <input type="submit" value="Submit">
+        <button v-on:click="addThread()">Submit</button>
       </form>
   </div>
 </template>
 
 <script>
 import moment from 'moment'
+import database from "../firebase.js";
+import firebase from "firebase";
+import 'firebase/firestore';
+import 'firebase/auth';
+
   export default {
-    components: {
+    computed: {
+        user() {
+            return this.$store.getters.getUser;
+        },
     },
     methods: {
       returnDate: function(timestamp) {     
         let myDate = new Date(timestamp.seconds * 1000) // date object
         return moment(String(myDate)).format('llll')
-      }
+      },
+
+      addThread: function() {
+        database.collection("forum").doc(this.category)
+        .collection("threads").doc(this.forums.thread_id)
+        .collection("replies")
+        .add({
+                User: this.name,
+                Message: this.msg,
+                Timestamp: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
+        })
+        this.$router.push('/community'); 
+      },
+
+      fetchUserInfo: function(user) {
+            database.collection('users').get()
+                .then((querySnapshot) => {
+                    let item = {}
+                    querySnapshot.forEach((doc) => {
+                        item = doc.data()
+                        if (item.email == user.email) {
+                            this.doc_id = doc.id,
+                            this.name = item.name,
+                            this.password = item.password,
+                            this.email = item.email,
+                            this.phoneNumber = item.phoneNumber
+                        }
+                    })
+                    
+                })
+        },
+
     },
     props: {
       forums: {
@@ -50,10 +89,15 @@ import moment from 'moment'
     },
     data(){
       return{
+        name: null,
+        email: null,
+        msg: "",
       }
     },
-    
-    }
+  created() {
+        this.fetchUserInfo(this.user)
+    }    
+}
 </script>
 
 <style scoped>
@@ -66,7 +110,7 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
 }
-input[type=submit] {
+button {
   width: 150px;
   background-color: darkcyan;
   color: white;
@@ -76,7 +120,7 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-input[type=submit]:hover {
+button:hover {
   background-color: #45a049;
 }
 div {

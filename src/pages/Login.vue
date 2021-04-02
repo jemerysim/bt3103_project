@@ -6,8 +6,8 @@
             <input type="text" id="email" v-model="form.email">
             <label for ="Passowrd"> Password: </label>
             <input type="text" id="password" v-model="form.password">
-            <button type="submit"> Log In </button>
-            <button type="button" v-on:click="showModal()"> Forgot Password </button>
+            <button type="submit" class="login-button"> Log In </button>
+            <button type="button" class="forget-button" v-on:click="showModal()"> Forgot Password? </button>
                 <Modal v-show="modalVisible" @close="hideModal">
                 <template v-slot:header>
                     Type in your email below and a link to reset your password will be sent.
@@ -20,8 +20,9 @@
                 </Modal>
         </form>  
         <div class="space">
+            <br>
            <p>  Not a member yet? Click below to Signup for exclusive perks! </p>
-            <button type="button" v-on:click="route()"> Signup </button>
+            <button type="button" class="signup-button" v-on:click="route()"> Signup </button>
         </div>
     </div>
 
@@ -103,7 +104,7 @@ input {
     border: 1px solid #76C056;;
     outline: none;
 }
-button {
+.login-button {
   display: block;
   width: 30%;
   font-size: 1.5rem;
@@ -113,6 +114,38 @@ button {
   color: black;
   background: #76C056;;
   padding: 10px 10px;
+  margin: 30px auto;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.forget-button {
+  display: block;
+  width: 30%;
+  /* font-size: 1.5rem; */
+  line-height: 1;
+  /* font-weight: 300; */
+  text-transform: uppercase;
+  color: black;
+  /* background: #76C056;; */
+  padding: 10px 10px;
+  margin: 30px auto;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.signup-button {
+  display: block;
+  width: 15%;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: black;
+  background: #76C056;;
+  padding: 5px 5px;
   margin: 30px auto;
   border: 0;
   outline: none;

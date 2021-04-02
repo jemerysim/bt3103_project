@@ -6,6 +6,7 @@
     <router-link class='thread-button' 
     tag="button" 
     v-on:click="route($event)"
+     v-if="user"
     :to="{name: 'CommunityNewThread', params: {category: category}}">
       Start a new thread
     </router-link>
@@ -27,9 +28,9 @@
   import database from './../firebase.js'
   export default {
     computed: {
-      get_cat() {  
-        return this.$store.state.stored_cat
-      }
+        user() {
+            return this.$store.getters.getUser;
+        },
     },
     props: {
       category: {
