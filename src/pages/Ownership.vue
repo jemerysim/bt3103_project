@@ -1,8 +1,8 @@
 <template>
 <div>
-  <h1 class="pageTitle">
+  <p class="pageTitle">
     Frequently Asked Questions Regarding EVs
-  </h1>
+  </p>
   <button type="button" class="question">What rebates and grants are EV-owners entitled to? </button>
   <div class="answer">
     <p>
@@ -94,7 +94,7 @@ export default {
 }
 
 .question {
-  background-color: #3D5D92;
+  background-color: #008080;
   cursor: pointer;
   padding: 20px;
   width: 95%;
@@ -109,7 +109,7 @@ export default {
 }
 
 .active, .question:hover {
-  background-color: #263959;
+  background-color: green;
 }
 
 .question:after {
@@ -139,7 +139,7 @@ export default {
 
 #comButton {
   margin-bottom: 30px;
-  background-color: darkblue;
+  background-color: black;
   font-size: 15px;
   border-radius: 10px;
   padding: 5px

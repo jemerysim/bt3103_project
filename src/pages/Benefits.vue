@@ -1,8 +1,8 @@
 <template>
 <div>
-  <h1 class="pageTitle">
+  <p class="pageTitle">
     Why Switch to Electric?
-  </h1>
+  </p>
 
   <div id="pageContent1">
     There are many benefits to owning an electric vehicle instead of a traditional internal combustion vehicle!
@@ -144,7 +144,7 @@ button {
   position: absolute;
   bottom: -30px;
   left: 20px;
-  background-color: darkblue;
+  background-color: black;
   color: white;
   font-size: 13px;
   border-radius: 10px;

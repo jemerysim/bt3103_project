@@ -3,7 +3,7 @@
   <p class="chargingText">
     Charging Stations
   </p>
-<iframe width="90%" height="500px" frameborder="10" allowfullscreen src="//umap.openstreetmap.fr/en/map/untitled-map_584696?scaleControl=true&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=databrowser&captionBar=false"></iframe>
+<p align="center"><iframe width="90%" height="500px" frameborder="10" allowfullscreen src="//umap.openstreetmap.fr/en/map/untitled-map_584696?scaleControl=true&miniMap=false&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=databrowser&captionBar=false"></iframe></p>
 <br>
 <ul>
   <li>
@@ -54,7 +54,7 @@ export default {
 }
 
 iframe {
-  bottom: 10px;
+  bottom: 5px;
 
 }
 
@@ -71,7 +71,7 @@ li {
   text-align: center;
   padding: 10px;
   
-  margin: 10px;
+  
 }
 
 img {
