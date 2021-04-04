@@ -68,15 +68,16 @@ export default {
 }
 
 .subheader {
-  margin: auto;
-  text-align: center;
+  margin: 20px;
+  text-align: left;
+  padding-left: 250px;
 }
 
 .partner_content {
-  margin: auto;
+  margin: 20px;
   width: 100%;
-  padding: 10px;
-  justify-content: center;
+  padding-left: 150px;
+
   
 }
 .logos {

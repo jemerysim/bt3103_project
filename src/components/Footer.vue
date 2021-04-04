@@ -3,6 +3,7 @@
     <footer>
       <div class="subscribe">
       <form id="form">
+        <br>
         <label for="email">Receive monthly newsletters and exclusive promotions:</label><br>
         <input type="textArea" id="email"/><br>
         <input type="submit" value="Subscribe" id="submitBtn">
@@ -50,9 +51,14 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     color: #403939;
     border: none;
+    margin: 10px;
   }
   #form {
     color: whitesmoke;
+  }
+
+  #input {
+    margin: 5px;
   }
   p {
     font-size: 10px;
