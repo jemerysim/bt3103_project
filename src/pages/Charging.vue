@@ -87,6 +87,8 @@ a:link, a:visited {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 a:hover, a:active {

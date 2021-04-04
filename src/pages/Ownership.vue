@@ -98,13 +98,11 @@ export default {
   cursor: pointer;
   padding: 20px;
   width: 95%;
-  border: 3px solid #222;
-  border-radius: 25px;
+  border-radius: 10px;
   margin-top: 30px;
   margin-left: 35px;
   text-align: left;
   font-size: 20px;
-  outline: 0;
   color: white;
 }
 
