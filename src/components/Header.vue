@@ -48,15 +48,14 @@ import { auth } from "../firebase.js";
 
 .flexWrap {
   display: flex;
-  overflow: hidden; 
+  overflow: auto; 
   margin: 30px;
   border-bottom: 1px solid #000;
   text-align: center;
 }
 .flexCol {
   box-sizing: border-box;
-  /* padding: 10px; */
-  width: 33.3%;
+  width: 50%;
 }
 
 #logo {
@@ -99,7 +98,7 @@ button {
 }
 
 .navbar-item {
-  display: inline-block;
+  display: inline;
   vertical-align: middle;
 }
 
