@@ -123,9 +123,10 @@
   color: rgb(96, 168, 111);
 }
 .forum-list .forum-listing:nth-child(odd) {
-  background: rgba(73, 89, 96, 0.06);
+  background: rgba(141, 141, 141, 0.267);
   border-bottom-left-radius: 20px;
 }
+
 .forum-list .forum-listing:last-child {
   border-bottom-left-radius: 20px;
 }

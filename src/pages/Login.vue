@@ -21,7 +21,7 @@
         </form>  
         <div class="space">
             <br>
-           <p>  Not a member yet? Click below to Signup for exclusive perks! </p>
+           <p>Not a member yet? Click below to Signup for exclusive perks! </p>
             <button type="button" class="signup-button" v-on:click="route()"> Signup </button>
         </div>
     </div>
@@ -88,6 +88,10 @@ export default {
 }
 </script>
 <style scoped>
+
+#email {
+
+}
 label {
     font-size: 1.5rem;
     padding-left: 250px;
@@ -95,7 +99,7 @@ label {
 input {
     display: block;
     width: 50%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1;
     font-weight: 400;
     text-align: left;
@@ -103,6 +107,8 @@ input {
     margin: 10px auto;
     border: 1px solid #76C056;;
     outline: none;
+      border-radius: 5px;
+
 }
 .login-button {
   display: block;
@@ -129,7 +135,7 @@ input {
   text-transform: uppercase;
   color: black;
   /* background: #76C056;; */
-  padding: 10px 10px;
+  /* padding: 10px 10px; */
   margin: 30px auto;
   border: 0;
   outline: none;
@@ -146,7 +152,7 @@ input {
   color: black;
   background: #76C056;;
   padding: 5px 5px;
-  margin: 30px auto;
+  margin: 10px auto;
   border: 0;
   outline: none;
   cursor: pointer;

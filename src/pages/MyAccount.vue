@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <h2> Welcome! {{ this.name }} </h2>
+    <h2> Welcome {{ this.name }}! </h2>
     <div class="largeBox">
         <div class="box">
         <p> Email: {{ this.email }} </p>

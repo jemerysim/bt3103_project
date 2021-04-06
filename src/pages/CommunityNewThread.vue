@@ -5,9 +5,6 @@
     </h2>
     <p>Welcome {{this.name}}, what do you want to talk about?</p>
    <form >
-    <!-- <label>Username: </label>
-    <input type="text" class="user" v-model="user" placeholder="Your username..">
-    <br><br> -->
     <label>Subject: </label>
     <input type="text" class="subject" v-model="subject" placeholder="What do you want to talk about?">
     <br><br>

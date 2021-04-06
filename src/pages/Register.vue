@@ -89,10 +89,14 @@ export default {
 </script>
 
 <style scoped>
+label {
+    font-size: 1.5rem;
+    padding-left: 250px;
+}
 input {
     display: block;
     width: 50%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1;
     font-weight: 400;
     text-align: left;
@@ -100,9 +104,11 @@ input {
     margin: 10px auto;
     border: 1px solid #76C056;;
     outline: none;
+          border-radius: 5px;
+
 }
 button {
- display: block;
+display: block;
   width: 30%;
   font-size: 1.5rem;
   line-height: 1;

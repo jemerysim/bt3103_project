@@ -69,16 +69,14 @@ export default {
 
 .subheader {
   margin: 20px;
-  text-align: left;
-  padding-left: 250px;
+  text-align: center;
 }
 
 .partner_content {
   margin: 20px;
-  width: 100%;
-  padding-left: 150px;
-
-  
+  text-align: center;
+  margin: auto;
+  left: 30%;
 }
 .logos {
   line-height: 10px;
@@ -86,7 +84,6 @@ export default {
   justify-content: center;
   
 }
-
 
 .headertext{
     font-size: 35px;
