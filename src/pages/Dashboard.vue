@@ -50,7 +50,7 @@
 
 <script>
 import database from "../firebase.js";
-import Modal from "./Modal.vue"
+import Modal from "../components/Modal.vue"
 export default {
     name: 'Dashboard',
     components: {

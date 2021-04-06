@@ -59,10 +59,6 @@
   padding: 20px 10px 20px 30px;
 }
 
-.forum-list .forum-listing:nth-child(odd) {
-  background: rgba(3, 6, 7, 0.06);
-  border-bottom-left-radius: 20px;
-}
 
 .forum-list .forum-listing:last-child {
   border-bottom-left-radius: 0;

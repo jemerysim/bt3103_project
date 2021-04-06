@@ -10,11 +10,13 @@
         <a class="navbar-item"> <router-link to="/charging" exact>Charging</router-link></a>
         <a class="navbar-item"> <router-link to="/ownership" exact>Ownership</router-link></a>
         <a class="navbar-item"> <router-link to="/community" exact>Community</router-link></a>
+        <a class="navbar-item"> <router-link to="/dashboard" exact>Dashboard</router-link></a>
+
       </div>
       <div class="flexCol">
         <router-link tag="button" to="/login" v-if="!user" exact>Login</router-link>
         <router-link tag="button" to="/register" v-if="!user" exact>Sign Up</router-link>
-        <router-link to="/dashboard" v-if="user"> Dashboard </router-link>
+        <router-link to="/myAccount" v-if="user"> My Account </router-link>
         <button @click="signOut" v-if="user"> Sign-out </button>
       </div>
     </nav>
@@ -24,7 +26,6 @@
 
 <script>
 import { auth } from "../firebase.js";
-
   export default {
     components: {
     },
@@ -41,33 +42,29 @@ import { auth } from "../firebase.js";
       },
     },
   }
-
 </script>
 
 <style scoped>
-
 .flexWrap {
   display: flex;
-  overflow: auto; 
+  overflow: hidden; 
   margin: 30px;
   border-bottom: 1px solid #000;
   text-align: center;
 }
 .flexCol {
   box-sizing: border-box;
-  width: 50%;
+  /* padding: 10px; */
+  width: 33.3%;
 }
-
 #logo {
   line-height: 10px;
   width: 180px;
   float: left;
 }
-
 #side {
   text-align: right;
 }
-
 .header a {
   color: black;
   text-align: center;
@@ -75,14 +72,12 @@ import { auth } from "../firebase.js";
   text-decoration: none;
   font-size: 18px; 
   line-height: 40px;
-
 }
 a.router-link-active{
   text-decoration: underline;
   text-decoration-color:black;
   text-decoration-thickness: 2px;
 } 
-
 button {
   margin: 8px;
   background-color: black;
@@ -94,15 +89,10 @@ button {
   display: inline-block;
   color: white; 
   box-shadow: inset 0px 0px 0px 1.6px #13573e;
-    cursor: pointer;
-
+  cursor: pointer;
 }
-
 .navbar-item {
-  display: inline;
+  display: inline-block;
   vertical-align: middle;
 }
-
-
-
 </style>
