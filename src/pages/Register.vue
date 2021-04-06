@@ -40,6 +40,7 @@ export default {
                 password: "",
                 passwordConfirm: "",
                 phoneNumber: "",
+                savedLocations:"",
             },
             submitStatus: "",
             error: null,
@@ -76,6 +77,7 @@ export default {
                 password: this.form.password,
                 type: ['user'],
             })
+            auth.signInWithEmailAndPassword(this.form.email, this.form.password);
             setTimeout(() => {
                 this.submitStatus = 'OK'
                 this.$router.replace({ name: 'Dashboard'})
@@ -100,7 +102,7 @@ input {
     outline: none;
 }
 button {
-  display: block;
+ display: block;
   width: 30%;
   font-size: 1.5rem;
   line-height: 1;
@@ -113,6 +115,7 @@ button {
   border: 0;
   outline: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 .error {        
     color: red;

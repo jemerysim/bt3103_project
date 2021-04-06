@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import database from './../firebase.js'
+  
   import CategoryListItem from '@/components/CategoryListItem'
 
 
@@ -21,39 +21,11 @@
     components: {
       CategoryListItem
     },
-
-    methods:{
-    fetchItems: function() {
-      database.collection('forum').get()
-      .then((querySnapShot)=> {
-        querySnapShot.forEach(doc => {
-          let cat_id = doc.id
-          this.categories[cat_id] = [];
-
-        database.collection('forum').doc(cat_id)
-            .collection("threads").get()
-            .then((querySnapShot) => {
-              querySnapShot.forEach(doc => {
-                  this.categories[cat_id].push(doc.data())
-            })
-          })
-        })
-      })
-    }
-   },
-
-    created: function() {
-        this.fetchItems()
+    computed: {
+        categories() {
+            return this.$store.getters.getCategories;
+        },
     },
-    data(){
-      return{
-        categories: { "Announcements": [ {},], 
-                      "Miscellaneous": [ {} ], 
-                      "Ownership": [ {} ], 
-                      "Questions & Feedback": [ {} ],
-                       "Vehicles": [ {} ] }
-      }
-    }
   }
 </script>
 
