@@ -8,7 +8,7 @@
       </p>
     </nav>
     <vue-horizontal class='pagecontent' responsive>
-    <img alt="ev_car" src="../assets/ev_car.png">
+    <img alt="ev_car" src="../assets/ev_car.png" height="300">
     <div>
       <h3 class="description">
         Welcome to the electric world!
@@ -27,12 +27,14 @@
 
   <div class='partner_content'>
     <h2 class='subheader'>Supported by the World's Best EV Manufacturers</h2>
-    <vue-horizontal class='partner_content'>
-      <img class="logos" src="../assets/tesla_logo.png">
-      <img class="logos" src="../assets/bmw_logo.png">
-      <img class="logos" src="../assets/mercedes_logo.png">
-      <img class="logos" src="../assets/nissan_logo.png">
-      <img class="logos" src="../assets/Chevrolet-logo.png">
+    <vue-horizontal class='logo_content'>
+      <ul class='logolist'>
+      <li><img class="logos" src="../assets/tesla_logo.png"></li>
+      <li><img class="logos" src="../assets/bmw_logo.png"></li>
+      <li><img class="logos" src="../assets/mercedes_logo.png"></li>
+      <li><img class="logos" src="../assets/nissan_logo.png"></li>
+      <li><img class="logos" src="../assets/Volkswagen_logo.png"></li>
+      </ul>
     </vue-horizontal>
   </div>
 
@@ -72,12 +74,11 @@ export default {
   text-align: center;
 }
 
-.partner_content {
-  margin: 20px;
-  text-align: center;
-  margin: auto;
-  left: 30%;
+.logo_content {
+  align: center;
+  
 }
+
 .logos {
   line-height: 10px;
   width: 150px;
@@ -92,5 +93,23 @@ export default {
     position: relative;
     top:30px;
     text-shadow: 2px 2px 2px gray;
+}
+
+.logolist {
+  display: flex;
+  flex-wrap: flex;
+  list-style-type: none;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logolist li {
+  flex-grow: 1;
+  flex-basis: 300px;
+  text-align: center;
+  padding: 10px;
+  
+  
 }
 </style>
