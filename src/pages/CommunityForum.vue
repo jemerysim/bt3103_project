@@ -139,7 +139,7 @@ div {
 }
 .heading-user {
   border-bottom-left-radius: 20px;
-  color: #263959;
+  color: #008080;
   display: flex;
   justify-content: flex-start;
   position: relative;

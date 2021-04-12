@@ -3,9 +3,9 @@
         <div v-if="error" class="alert alert-danger"> {{error}}</div>
         <form action="#" @submit.prevent="submit">
             <label for="Email"> Email: </label>
-            <input type="text" id="email" v-model="form.email">
-            <label for ="Passowrd"> Password: </label>
-            <input type="text" id="password" v-model="form.password">
+            <input type="email" id="email" v-model="form.email">
+            <label for ="Password"> Password: </label>
+            <input type="password" id="password" v-model="form.password">
             <button type="submit" class="login-button"> Log In </button>
             <button type="button" class="forget-button" v-on:click="showModal()"> Forgot Password? </button>
                 <Modal v-show="modalVisible" @close="hideModal">
@@ -93,8 +93,10 @@ export default {
 
 }
 label {
-    font-size: 1.5rem;
-    padding-left: 250px;
+    display: block;
+    width: 150px;
+    
+    
 }
 input {
     display: block;
@@ -103,8 +105,9 @@ input {
     line-height: 1;
     font-weight: 400;
     text-align: left;
-    padding: 10px 10px;
-    margin: 10px auto;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid #76C056;;
     outline: none;
       border-radius: 5px;

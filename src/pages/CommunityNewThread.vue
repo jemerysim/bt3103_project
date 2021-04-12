@@ -88,7 +88,7 @@ input[type=text], textarea {
 }
 button {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #008080;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
