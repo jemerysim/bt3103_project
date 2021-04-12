@@ -4,7 +4,7 @@
     <div class="largeBox">
         <div class="box">
         <p> Email: {{ this.email }} </p>
-        <p> Password:{{ this.password }} </p>
+        <p> Password: {{ this.password }} </p>
         <p> Phone number: {{ this.phoneNumber }} </p>
                 <button type="button" class="btn" @click="showModal"> Update Phone Number </button>
                 <Modal v-show="modalVisible" @close="closeModal">
@@ -139,12 +139,17 @@ export default {
 .box {
     display: block;
     width: 50%;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1;
     font-weight: 400;
     text-align: left;
-    border: 1px solid #76C056;;
+    border: 1px solid black;
     outline: none;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    
 }
 .location-list {
     display: block;
@@ -155,16 +160,27 @@ export default {
     text-align: left;
     padding: 10px 10px;
     margin: 50px auto;
-    border: 1px solid #76C056;;
+    border: 1px solid black;
     outline: none;
 }
 p {
     margin: 30px;
     
 }
-label {
-    font-size: 1.5rem;
-    padding-left: 250px;
+
+h2 {
+    margin-left: 10px;
+    text-align: center;
+}
+
+h4 {
+    margin-left: 20px;
+}
+.box label {
+    display: block;
+    text-align: center;
+    
+    
 }
 input {
     display: block;
@@ -175,21 +191,26 @@ input {
     text-align: left;
     padding: 10px 10px;
     margin: 10px auto;
-    border: 1px solid #76C056;;
+    border: 1px solid black;
     outline: none;
 }
 button {
-display: block;
+  display: block;
   width: 30%;
   font-size: 1.5rem;
   line-height: 1;
   font-weight: 300;
-  color: black;
-  background: #76C056;;
+  color: white;
+  background: #008080;
   padding: 10px 10px;
   margin: 30px auto;
   border: 0;
+  border-radius: 10px;
   outline: none;
   cursor: pointer;
+}
+
+button:hover, button:active {
+  background-color: green;
 }
 </style>
