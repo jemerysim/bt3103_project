@@ -89,18 +89,18 @@ export default {
 </script>
 <style scoped>
 
-#email {
-
-}
 label {
     display: block;
     width: 150px;
-    
-    
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 input {
     display: block;
-    width: 50%;
+    width: 30%;
     font-size: 1.2rem;
     line-height: 1;
     font-weight: 400;
@@ -108,7 +108,7 @@ input {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #76C056;;
+    border: 1px solid black;
     outline: none;
       border-radius: 5px;
 
