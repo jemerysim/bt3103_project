@@ -80,7 +80,7 @@ export default {
             auth.signInWithEmailAndPassword(this.form.email, this.form.password);
             setTimeout(() => {
                 this.submitStatus = 'OK'
-                this.$router.replace({ name: 'Dashboard'})
+                this.$router.replace({ name: 'Home'})
                 }, 500)
             }
         },
