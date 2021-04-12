@@ -3,9 +3,9 @@
         <div v-if="error" class="alert alert-danger"> {{error}}</div>
         <form action="#" @submit.prevent="submit">
             <label for="Email"> Email: </label>
-            <input type="email" id="email" v-model="form.email">
+            <input type="email" id="Email" v-model="form.email">
             <label for ="Password"> Password: </label>
-            <input type="password" id="password" v-model="form.password">
+            <input type="password" id="Password" v-model="form.password">
             <button type="submit" class="login-button"> Log In </button>
             <button type="button" class="forget-button" v-on:click="showModal()"> Forgot Password? </button>
                 <Modal v-show="modalVisible" @close="hideModal">
@@ -95,12 +95,16 @@ export default {
 label {
     display: block;
     width: 150px;
-    
-    
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;  
 }
+
 input {
     display: block;
-    width: 50%;
+    width: 30%;
     font-size: 1.2rem;
     line-height: 1;
     font-weight: 400;
@@ -108,7 +112,7 @@ input {
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #76C056;;
+    border: 1px solid black;
     outline: none;
       border-radius: 5px;
 
@@ -120,8 +124,8 @@ input {
   line-height: 1;
   font-weight: 300;
   text-transform: uppercase;
-  color: black;
-  background: #76C056;;
+  color: white;
+  background-color: #008080;
   padding: 10px 10px;
   margin: 30px auto;
   border: 0;
@@ -138,7 +142,7 @@ input {
   text-transform: uppercase;
   color: black;
   /* background: #76C056;; */
-  /* padding: 10px 10px; */
+  padding: 5px;
   margin: 30px auto;
   border: 0;
   outline: none;
@@ -152,14 +156,15 @@ input {
   line-height: 1;
   font-weight: 300;
   text-transform: uppercase;
-  color: black;
-  background: #76C056;;
+  color: white;
+  background-color: #008080;
   padding: 5px 5px;
   margin: 10px auto;
   border: 0;
   outline: none;
   cursor: pointer;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 p {
