@@ -164,6 +164,14 @@ input {
   margin-bottom: 20px;
 }
 
+button:hover, button:active {
+  background-color: green;
+}
+
+.forget-button:hover, .forget-button:active{
+    background-color: grey;
+}
+
 p {
     text-align: center;
 }
