@@ -40,7 +40,7 @@ export default {
                 password: "",
                 passwordConfirm: "",
                 phoneNumber: "",
-                savedLocations:"",
+                savedLocations: [],
             },
             submitStatus: "",
             error: null,
@@ -76,6 +76,7 @@ export default {
                 phoneNumber: this.form.phoneNumber,
                 password: this.form.password,
                 type: ['user'],
+                savedLocations: [],
             })
             auth.signInWithEmailAndPassword(this.form.email, this.form.password);
             setTimeout(() => {
