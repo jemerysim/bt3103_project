@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div v-if="error" class="alert alert-danger"> {{error}}</div>
+        <div v-if="error" class="error"> {{error}}</div>
         <form action="#" @submit.prevent="submit">
             <label for="Email"> Email: </label>
             <input type="email" id="Email" v-model="form.email">
@@ -99,6 +99,13 @@ label {
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.error {        
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input {
