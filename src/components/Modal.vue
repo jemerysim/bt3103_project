@@ -14,7 +14,6 @@
             <footer class="modal-footer">
             <slot name="footer">
             </slot>
-            <button type="button" class="btn-green" @click="close"> Close </button>
             </footer>
         </div>
     </div>

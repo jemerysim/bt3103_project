@@ -15,7 +15,9 @@
                 <template v-slot:body>
                     <label for="emailForget"> Email: </label>
                     <input type="email" id="emailForget" v-model="forgetEmail">
-                    <button v-on:click="sendPassordConfirm()"> Confirm </button>
+                </template>
+                <template v-slot:footer>
+                    <button type="button" class="btn-green" v-on:click="sendPassordConfirm()"> Confirm </button>
                 </template>
                 </Modal>
         </form>  
