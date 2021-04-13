@@ -9,9 +9,9 @@
         <input type="submit" value="Subscribe" id="submitBtn">
       </form><br>
       </div>
-      <p id="AboutUs">About us    </p>
-      <p id="Partnership">Partnership    </p>
-      <p id="Terms">Terms of use    </p>
+      
+      <p id="Copyright">Copyright © 2021 EVINFO    </p>
+      
     </footer>
   </div>
 </template>
