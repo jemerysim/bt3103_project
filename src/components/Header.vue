@@ -10,7 +10,7 @@
         <a class="navbar-item"> <router-link to="/charging" exact>Charging</router-link></a>
         <a class="navbar-item"> <router-link to="/ownership" exact>Ownership</router-link></a>
         <a class="navbar-item"> <router-link to="/community" exact>Community</router-link></a>
-        <a class="navbar-item"> <router-link to="/dashboard" exact>Dashboard</router-link></a>
+        <a class="navbar-item" href="https://electric-vehicle-sg-dashboard.herokuapp.com/" target="_blank"> Dashboard </a>
 
       </div>
       <div class="headerButtons">
@@ -48,10 +48,10 @@ import { auth } from "../firebase.js";
 .flexWrap {
   display: flex;
   overflow: hidden; 
-  
   border-bottom: 1px solid #000;
   text-align: center;
 }
+
 .flexCol {
   box-sizing: border-box;
   width: 50%;
@@ -72,9 +72,11 @@ import { auth } from "../firebase.js";
   width: 180px;
   float: left;
 }
+
 #side {
   text-align: right;
 }
+
 .header a {
   color: black;
   text-align: center;
@@ -83,11 +85,19 @@ import { auth } from "../firebase.js";
   font-size: 18px; 
   line-height: 40px;
 }
+
 a.router-link-active{
   text-decoration: underline;
   text-decoration-color:black;
   text-decoration-thickness: 2px;
 } 
+
+a:active {
+  text-decoration: underline;
+  text-decoration-color:black;
+  text-decoration-thickness: 2px;
+}
+
 button {
   margin: 8px;
   background-color: black;
@@ -101,6 +111,7 @@ button {
   box-shadow: inset 0px 0px 0px 1.6px #13573e;
   cursor: pointer;
 }
+
 .navbar-item {
   display: inline;
   vertical-align: middle;
