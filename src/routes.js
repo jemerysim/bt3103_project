@@ -8,7 +8,6 @@ import Login from './pages/Login.vue'
 import CommunityCategory from './pages/CommunityCategory.vue'
 import CommunityForum from './pages/CommunityForum.vue'
 import CommunityNewThread from './pages/CommunityNewThread.vue'
-import Dashboard from './pages/Dashboard.vue'
 import MyAccount from './pages/MyAccount.vue'
 
 
@@ -23,6 +22,5 @@ export default [
   { name: 'CommunityCategory', path: '/community/communityCategory', component: CommunityCategory, props: true },
   { name: 'CommunityForum', path: '/community/communityForum', component: CommunityForum, props: true },
   { name: 'CommunityNewThread', path: '/community/communityNewThread', component: CommunityNewThread, props: true },
-  { name: 'Dashboard', path: '/dashboard', component: Dashboard , props: true},
   { name: 'MyAccount', path: '/myAccount', component: MyAccount , props: true}
 ]
