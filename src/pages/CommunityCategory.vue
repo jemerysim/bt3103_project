@@ -89,7 +89,7 @@
 }
 .heading-title {
   border-bottom-left-radius: 20px;
-  color: #008080;
+  color: black;
   display: flex;
   justify-content: flex-start;
   position: relative;
@@ -99,7 +99,7 @@
 }
 .list-title {
   background-color: #008080;
-  border-bottom-left-radius: 20px;
+  border-radius: 10px;
   color: #f5f8fe;
   font-weight: 100;
   display: flex;
