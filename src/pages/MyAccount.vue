@@ -27,6 +27,7 @@
                 <p> Address: {{ loc.address }} </p>
                 <p> Name:  {{ loc.name }} </p>
                 <p> Postal Code: {{ loc.postalCode}} </p>
+                <button @click="deleteLocation(index)"> Delete </button>
              </li>
             </ul>
         </div>
@@ -72,6 +73,7 @@ export default {
             update_phoneNumber: '',
             modalVisible: false,
             savedLocations: [],
+            uid: '',
             addLocation: {'address': '', 'name': '', 'postalCode': '' }
         }
     },
@@ -104,6 +106,12 @@ export default {
                         }
                     })
                 })
+        },
+        deleteLocation: function(index) {
+          this.savedLocations.splice(index,1);
+            database.collection('users').doc(this.uid).update({
+              "savedLocations": this.savedLocations
+            })
         },
         updatePhoneNumber: function(doc_id) {
             database.collection('users').doc(doc_id).update({
