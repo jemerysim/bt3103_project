@@ -26,6 +26,18 @@
     <a href="https://play.google.com/store/apps/details?id=com.zecosystems.greenlots&hl=en_SG&gl=US"> Android App</a>
     <a href="https://apps.apple.com/sg/app/greenlots/id617977159"> iOS App</a>
   </li>
+    <div class="largeBox" v-if="user">
+        <div class="box">
+        <h4> Your Saved Locations </h4>
+            <ul class>   
+            <li v-for="loc in savedLocations" v-bind:key='loc' class="location-list">
+                <p> Address: {{ loc.address }} </p>
+                <p> Name:  {{ loc.name }} </p>
+                <p> Postal Code: {{ loc.postalCode}} </p>
+             </li>
+            </ul>
+        </div>
+    </div>
 
 </ul>
 
@@ -36,8 +48,38 @@
 
 
 <script>
+import database from "../firebase";
+
 export default {
-  name: 'Charging'
+  name: 'Charging',
+  data() {
+    return {
+      savedLocations : []
+    }
+  },
+  computed: {
+     user() {
+        return this.$store.getters.getUser;
+     }
+  },
+  methods: {
+        fetchLocation: function(user) {
+            database.collection('users').get()
+                .then((querySnapshot) => {
+                    let item = {}
+                    querySnapshot.forEach((doc) => {
+                        item = doc.data()
+                        console.log(item)
+                        if (item.email == user.email) {
+                            this.savedLocations = item.savedLocations;
+                        }
+                    })
+                })
+        },
+  },
+  created() {
+    this.fetchLocation(this.user);
+  }
 };
 </script>
 
