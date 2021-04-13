@@ -5,6 +5,19 @@
   </p>
 <p align="center"><iframe width="90%" height="500px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/en/map/ev-charging-stations-in-singapore_584696?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false&locateControl=true"></iframe></p>
 <br>
+<div class="largeBox" v-if="user">
+        <div class="box">
+        <h4> Your Saved Locations </h4>
+            <ul class="savedlocs">   
+            <li v-for="loc in savedLocations" v-bind:key='loc' class="location-list">
+                <p> Address: {{ loc.address }} </p>
+                <p> Name:  {{ loc.name }} </p>
+                <p> Postal Code: {{ loc.postalCode}} </p>
+                <button @click="deleteLocation(index)"> Delete </button>
+             </li>
+            </ul>
+        </div>
+    </div>
 <ul>
   <li>
     <img src="https://static-s.aa-cdn.net/img/gp/20600000794734/QNg09q6K9B9XAC5T6uty5M-tuJPLY4OBK2-x2qR8LTte1yiqrsYkaowog1-rSDaNgQJg=s300" width="50" height="50">
@@ -26,19 +39,6 @@
     <a href="https://play.google.com/store/apps/details?id=com.zecosystems.greenlots&hl=en_SG&gl=US"> Android App</a>
     <a href="https://apps.apple.com/sg/app/greenlots/id617977159"> iOS App</a>
   </li>
-    <div class="largeBox" v-if="user">
-        <div class="box">
-        <h4> Your Saved Locations </h4>
-            <ul class>   
-            <li v-for="(loc, index) in savedLocations" v-bind:key='loc' class="location-list">
-                <p> Address: {{ loc.address }} </p>
-                <p> Name:  {{ loc.name }} </p>
-                <p> Postal Code: {{ loc.postalCode}} </p>
-                <button @click="deleteLocation(index)"> Delete </button>
-             </li>
-            </ul>
-        </div>
-    </div>
 
 </ul>
 
@@ -146,7 +146,36 @@ a:hover, a:active {
   background-color: green;
 }
 
+.box {
+    display: block;
+    width: 60%;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: lightgrey;
+    outline: none;
+    border-radius: 10px;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
 
+.savedlocs ul {
+  display: inline;
+  list-style-type: none;
+}
+
+.savedlocs li {
+  text-align: left;
+  padding: 10px;
+  flex-grow: 1;
+  flex-basis: 300px;
+}
+
+h4 {
+  padding: 5px;
+}
 
 
 </style>
