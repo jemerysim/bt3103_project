@@ -99,6 +99,7 @@ export default {
   padding: 20px;
   width: 95%;
   border-radius: 10px;
+  border: 0;
   margin-top: 30px;
   margin-left: 35px;
   text-align: left;

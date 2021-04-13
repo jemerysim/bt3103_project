@@ -13,11 +13,11 @@
         <a class="navbar-item"> <router-link to="/dashboard" exact>Dashboard</router-link></a>
 
       </div>
-      <div class="flexCol">
+      <div class="headerButtons">
         <router-link tag="button" to="/login" v-if="!user" exact>Login</router-link>
         <router-link tag="button" to="/register" v-if="!user" exact>Sign Up</router-link>
         <router-link to="/myAccount" v-if="user"> My Account </router-link>
-        <button @click="signOut" v-if="user"> Sign-out </button>
+        <button @click="signOut" v-if="user"> Sign Out </button>
       </div>
     </nav>
     
@@ -48,15 +48,25 @@ import { auth } from "../firebase.js";
 .flexWrap {
   display: flex;
   overflow: hidden; 
-  margin: 30px;
+  
   border-bottom: 1px solid #000;
   text-align: center;
 }
 .flexCol {
   box-sizing: border-box;
-  /* padding: 10px; */
-  width: 33.3%;
+  width: 50%;
+  text-align: center;
+  margin: auto;
 }
+
+.headerButtons {
+  box-sizing: border-box;
+  /* padding: 10px; */
+  width: 50.3%;
+  text-align:right;
+  margin: auto;
+}
+
 #logo {
   line-height: 10px;
   width: 180px;
@@ -92,7 +102,8 @@ button {
   cursor: pointer;
 }
 .navbar-item {
-  display: inline-block;
+  display: inline;
   vertical-align: middle;
+  horizontal-align: middle;
 }
 </style>

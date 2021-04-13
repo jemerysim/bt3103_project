@@ -32,7 +32,7 @@
       <li><img class="logos" src="../assets/tesla_logo.png"></li>
       <li><img class="logos" src="../assets/bmw_logo.png"></li>
       <li><img class="logos" src="../assets/mercedes_logo.png"></li>
-      <li><img class="logos" src="../assets/nissan_logo.png"></li>
+      <li><img class="nissan" src="../assets/nissan.svg"></li>
       <li><img class="logos" src="../assets/Volkswagen_logo.png"></li>
       </ul>
     </vue-horizontal>
@@ -81,7 +81,16 @@ export default {
 
 .logos {
   line-height: 10px;
-  width: 150px;
+  width: 100px;
+  padding: 20px;
+  justify-content: center;
+  
+}
+
+.nissan {
+  line-height: 10px;
+  width: 120px;
+  padding: 20px;
   justify-content: center;
   
 }
