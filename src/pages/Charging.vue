@@ -13,6 +13,7 @@
                 <p> Address: {{ loc.address }} </p>
                 <p> Name:  {{ loc.name }} </p>
                 <p> Postal Code: {{ loc.postalCode}} </p>
+                <button @click="deleteLocation(index)"> Delete </button>
              </li>
             </ul>
         </div>
@@ -38,7 +39,6 @@
     <a href="https://play.google.com/store/apps/details?id=com.zecosystems.greenlots&hl=en_SG&gl=US"> Android App</a>
     <a href="https://apps.apple.com/sg/app/greenlots/id617977159"> iOS App</a>
   </li>
-    
 
 </ul>
 
@@ -55,7 +55,8 @@ export default {
   name: 'Charging',
   data() {
     return {
-      savedLocations : []
+      savedLocations : [],
+      uid: '',
     }
   },
   computed: {
@@ -73,9 +74,16 @@ export default {
                         console.log(item)
                         if (item.email == user.email) {
                             this.savedLocations = item.savedLocations;
+                            this.uid = doc.id;
                         }
                     })
                 })
+        },
+        deleteLocation: function(index) {
+          this.savedLocations.splice(index,1);
+            database.collection('users').doc(this.uid).update({
+              "savedLocations": this.savedLocations
+            })
         },
   },
   created() {
