@@ -31,8 +31,8 @@
 
 <style scoped>
 .list-title {
-  background-color: #263959;
-  border-bottom-left-radius: 20px;
+  background-color: #008080;
+  border-radius: 10px;
   color: #f5f8fe;
   font-weight: 100;
   display: flex;

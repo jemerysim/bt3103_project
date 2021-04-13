@@ -130,7 +130,7 @@ div {
 }
 .heading-title {
   border-bottom-left-radius: 20px;
-  color: #263959;
+  color: black;
   display: flex;
   justify-content: flex-start;
   position: relative;
