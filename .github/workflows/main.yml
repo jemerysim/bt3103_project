@@ -37,4 +37,4 @@ jobs:
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BT3103_PROJECT_350EF }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
