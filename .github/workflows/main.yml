@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@master
       - name: Install Dependencies
-        run: npm install --save moment vue-chartjs vue-router chart.js
+        run: npm install --save moment vue-router vue-chartjs chart.js
       - name: Build
         run: npm run build
       - name: Archive Production Artifact
