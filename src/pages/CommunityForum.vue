@@ -11,7 +11,7 @@
           <a class="reply-time">{{returnDate(forums.Timestamp)}}</a>
 
         </li>
-        <li v-for="reply in forums.replies.sort((b,a) => b.Timestamp - a.Timestamp)" v-bind:key='reply' class='reply-li'>
+        <li v-for="reply in forums.replies" v-bind:key='reply' class='reply-li'>
           <a class="user">{{reply.User}}:</a>
           <a class="reply">{{reply.Message}}</a>
           <a class="reply-time">{{returnDate(reply.Timestamp)}}</a> 
