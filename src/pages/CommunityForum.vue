@@ -51,7 +51,7 @@ import 'firebase/auth';
         .collection("threads").doc(this.forums.thread_id)
         .collection("replies")
         .add({
-                User: this.name,
+                User: this.nameUser,
                 Message: this.msg,
                 Timestamp: firebase.firestore.Timestamp.fromDate(new Date(Date.now())),
         })
@@ -62,17 +62,14 @@ import 'firebase/auth';
             database.collection('users').get()
                 .then((querySnapshot) => {
                     let item = {}
+                    let nameUser;
                     querySnapshot.forEach((doc) => {
                         item = doc.data()
                         if (item.email == user.email) {
-                            this.doc_id = doc.id,
-                            this.name = item.name,
-                            this.password = item.password,
-                            this.email = item.email,
-                            this.phoneNumber = item.phoneNumber
+                            nameUser = item.name
                         }
                     })
-                    
+                    this.nameUser = nameUser;
                 })
         },
 
@@ -89,8 +86,7 @@ import 'firebase/auth';
     },
     data(){
       return{
-        name: null,
-        email: null,
+        nameUser: null,
         msg: "",
       }
     },
