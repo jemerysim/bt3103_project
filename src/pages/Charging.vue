@@ -3,7 +3,7 @@
   <p class="chargingText">
     Charging Stations
   </p>
-<p align="center"><iframe width="90%" height="500px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/en/map/ev-charging-stations-in-singapore_584696?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false&locateControl=true"></iframe></p>
+<p align="center"><iframe width="90%" height="500px" frameborder="0" allowfullscreen src="//umap.openstreetmap.fr/en/map/ev-charging-stations-in-singapore_584696?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&allowEdit=false&moreControl=true&searchControl=true&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=undefined&captionBar=false&locateControl=false"></iframe></p>
 <br>
 <div class="largeBox" v-if="user">
         <div class="box">

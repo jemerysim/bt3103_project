@@ -7,22 +7,22 @@
       THE FUTURE OF MOBILITY HAS ARRIVED
       </p>
     </nav>
-    <vue-horizontal class='pagecontent' responsive>
     <img alt="ev_car" src="../assets/ev_car.png" height="300">
-    <div>
-      <h3 class="description">
+    <div class='pagecontent'>
+    <h3 class="description">
         Welcome to the electric world!
-      </h3>
+    </h3>
+      
       <p>A group of EV enthusiasts have created this valuable resource for EV-related information! Join us as a member for free if you are interested in helping us grow!
       </p>
-      <ul>
+      <ul class='featurelist'>
         <li>Charging Information</li>
         <li>Ownership Information</li>
         <li>Benefits of Electric Vehicles</li>
         <li>Our EV Community</li>
       </ul>
+    
     </div>
-    </vue-horizontal>
   </div>
 
   <div class='partner_content'>
@@ -60,13 +60,27 @@ export default {
 
 <style scoped>
 
+
+
 .content { 
   background-color: rgba(0, 0, 0, 0.068);
+  text-align: center;
 }
+
+.content img{
+  float:left;
+  padding-left: 29%;
+  
+}
+
+
 .pagecontent {
-  margin: auto;
-  left: 30%;
-  padding: 10px;
+  display: flex;
+
+  flex-direction: column;
+  width: 300px;
+  text-align: left;
+  padding-bottom: 10px;
 }
 
 .subheader {
@@ -75,7 +89,7 @@ export default {
 }
 
 .logo_content {
-  align: center;
+  
   
 }
 
