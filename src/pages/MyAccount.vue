@@ -14,7 +14,7 @@
                 <template v-slot:body>
                     <label for="updatePhoneNumber"> Phone Number: </label>
                     <input type="text" id="PhoneNumber" v-model="update_phoneNumber">
-                    <button v-bind="doc_id" v-on:click="updatePhoneNumber(doc_id)"> Confirm </button>
+                    <button v-on:click="updatePhoneNumber"> Confirm </button>
                 </template>
                 </Modal>
         </div>
@@ -23,7 +23,7 @@
         <div class="box">
         <h4> Your Saved Locations </h4>
             <ul class>   
-            <li v-for="loc in savedLocations" v-bind:key='loc' class="location-list">
+            <li v-for="(loc, index) in savedLocations" v-bind:key='loc.postalCode' class="location-list">
                 <p> Address: {{ loc.address }} </p>
                 <p> Name:  {{ loc.name }} </p>
                 <p> Postal Code: {{ loc.postalCode}} </p>
@@ -73,7 +73,6 @@ export default {
             update_phoneNumber: '',
             modalVisible: false,
             savedLocations: [],
-            uid: '',
             addLocation: {'address': '', 'name': '', 'postalCode': '' }
         }
     },
@@ -108,13 +107,13 @@ export default {
                 })
         },
         deleteLocation: function(index) {
-          this.savedLocations.splice(index,1);
-            database.collection('users').doc(this.uid).update({
-              "savedLocations": this.savedLocations
-            })
+          this.savedLocations.splice(index, 1);
+          database.collection('users').doc(this.doc_id).update({
+            'savedLocations': this.savedLocations
+          })
         },
-        updatePhoneNumber: function(doc_id) {
-            database.collection('users').doc(doc_id).update({
+        updatePhoneNumber: function() {
+            database.collection('users').doc(this.doc_id).update({
                 'phoneNumber': this.update_phoneNumber
             }).then(() => { location.reload() })
         },

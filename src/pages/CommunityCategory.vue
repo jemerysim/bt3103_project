@@ -15,7 +15,7 @@
     </h3>
 
     <ul class="forum-list">   
-     <li v-for="obj in categoryForums" v-bind:key='obj' class='forum-listing'>
+     <li v-for="obj in categoryForums" v-bind:key="obj.thread_id" class='forum-listing'>
       <router-link :to="{name: 'CommunityForum', params: {category: category, forums: obj}}">
         {{ obj.Subject }}
       </router-link>

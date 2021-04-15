@@ -9,7 +9,7 @@
         <div class="box">
         <h4> Your Saved Locations </h4>
             <ul class="savedlocs">   
-            <li v-for="loc in savedLocations" v-bind:key='loc' class="location-list">
+            <li v-for="(loc, index) in savedLocations" v-bind:key='loc.postalCode' class="location-list">
                 <p> Address: {{ loc.address }} </p>
                 <p> Name:  {{ loc.name }} </p>
                 <p> Postal Code: {{ loc.postalCode}} </p>
@@ -41,12 +41,8 @@
   </li>
 
 </ul>
-
-
-
-  </div>
+</div>
 </template>
-
 
 <script>
 import database from "../firebase";
@@ -66,21 +62,21 @@ export default {
   },
   methods: {
         fetchLocation: function(user) {
-            database.collection('users').get()
-                .then((querySnapshot) => {
-                    let item = {}
-                    querySnapshot.forEach((doc) => {
-                        item = doc.data()
-                        console.log(item)
-                        if (item.email == user.email) {
-                            this.savedLocations = item.savedLocations;
-                            this.uid = doc.id;
-                        }
-                    })
-                })
+          if (user != null) {
+            database.collection('users').get().then((querySnapshot) => {
+              let item = {}
+              querySnapshot.forEach((doc) => {
+                item = doc.data()
+                if (item.email == user.email) {
+                  this.savedLocations = item.savedLocations;
+                  this.uid = doc.id;
+                }
+              })
+            })
+          }
         },
         deleteLocation: function(index) {
-          this.savedLocations.splice(index,1);
+          this.savedLocations.splice(index, 1);
             database.collection('users').doc(this.uid).update({
               "savedLocations": this.savedLocations
             })
@@ -106,7 +102,6 @@ export default {
 
 iframe {
   bottom: 5px;
-
 }
 
 ul {
@@ -121,8 +116,6 @@ li {
   flex-basis: 300px;
   text-align: center;
   padding: 10px;
-  
-  
 }
 
 img {
@@ -154,11 +147,8 @@ a:hover, a:active {
     background-color: lightgrey;
     outline: none;
     border-radius: 10px;
-    
     margin-left: auto;
     margin-right: auto;
-    
-    
 }
 
 .savedlocs ul {
@@ -176,7 +166,5 @@ a:hover, a:active {
 h4 {
   padding: 5px;
 }
-
-
 </style>
 

@@ -37,7 +37,7 @@ import { auth } from "../firebase.js";
     methods: {
       signOut: function() {
         auth.signOut().then(() => {
-          this.$router.replace({ name: 'Home'});
+          this.$router.replace({ name: 'Home'}).catch(() => {});
         });
       },
     },

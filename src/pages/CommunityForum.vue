@@ -11,7 +11,7 @@
           <a class="reply-time">{{returnDate(forums.Timestamp)}}</a>
 
         </li>
-        <li v-for="reply in forums.replies" v-bind:key='reply' class='reply-li'>
+        <li v-for="reply in forums.replies" v-bind:key='reply.Message' class='reply-li'>
           <a class="user">{{reply.User}}:</a>
           <a class="reply">{{reply.Message}}</a>
           <a class="reply-time">{{returnDate(reply.Timestamp)}}</a> 
@@ -59,20 +59,20 @@ import 'firebase/auth';
       },
 
       fetchUserInfo: function(user) {
-            database.collection('users').get()
-                .then((querySnapshot) => {
-                    let item = {}
-                    let nameUser;
-                    querySnapshot.forEach((doc) => {
-                        item = doc.data()
-                        if (item.email == user.email) {
-                            nameUser = item.name
-                        }
-                    })
-                    this.nameUser = nameUser;
-                })
-        },
-
+        if (user != null) {
+          database.collection('users').get().then((querySnapshot) => {
+            let item = {};
+            let nameUser = "";
+            querySnapshot.forEach((doc) => {
+              item = doc.data();
+              if (item.email == user.email) {
+                nameUser = item.name;
+              }
+            })
+            this.nameUser = nameUser;
+          })
+        }
+      },
     },
     props: {
       forums: {
