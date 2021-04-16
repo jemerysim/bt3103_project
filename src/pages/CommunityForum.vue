@@ -11,7 +11,7 @@
           <a class="reply-time">{{returnDate(forums.Timestamp)}}</a>
 
         </li>
-        <li v-for="reply in forums.replies" v-bind:key='reply.Message' class='reply-li'>
+        <li v-for="reply in getReplies" v-bind:key='reply.Message' class='reply-li'>
           <a class="user">{{reply.User}}:</a>
           <a class="reply">{{reply.Message}}</a>
           <a class="reply-time">{{returnDate(reply.Timestamp)}}</a> 
@@ -34,11 +34,21 @@ import firebase from "firebase";
 import 'firebase/firestore';
 import 'firebase/auth';
 
+
   export default {
+
     computed: {
         user() {
             return this.$store.getters.getUser;
         },
+        getReplies() {
+          let array_forum = [];
+          for( var i=0; i<this.forums.replies.length; i++){
+              let msg = this.forums.replies[i];
+              array_forum.push(msg);
+          }
+          return array_forum.sort((a, b) => a.Timestamp - b.Timestamp)
+    }
     },
     methods: {
       returnDate: function(timestamp) {     
@@ -88,6 +98,7 @@ import 'firebase/auth';
       return{
         nameUser: null,
         msg: "",
+        forum_replies: []
       }
     },
   created() {
