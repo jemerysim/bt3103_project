@@ -8,25 +8,28 @@
     There are many benefits to owning an electric vehicle instead of a traditional internal combustion vehicle!
   </div>
 
-  <div id="pageContent2">
-    <span class="imageArea">
-      <span class="benefitTitle">Lower maintenance and running costs</span>
-      <button v-on:click="showMaintenanceBenefit=!showMaintenanceBenefit">Learn more</button>
+  <div id="pageContent2" class="mainContainer1">
+    <div class="mainBenefit">
+      <p id="benefitsTitle1" class="benefitsTitle">Lower maintenance and running costs</p>
       <img alt="Car Maintenance" src="../assets/car_maintenance.jpg" class="image">
-    </span>
-    <span class="imageArea">
-      <span class="benefitTitle">Cleaner air in your living environment</span>
-      <button v-on:click="showCleanAirBenefit=!showCleanAirBenefit">Learn more</button>
+      <br>
+      <button id="button1" v-on:click="showMaintenanceBenefit=!showMaintenanceBenefit">Learn more</button>
+    </div>
+    <div class="mainBenefit">
+      <p id="benefitsTitle2" class="benefitsTitle">Cleaner air in your living environment</p>
       <img alt="Clean air" src="../assets/clean_air.jpg" class="image">
-    </span>
-    <span class="imageArea">
-      <span class="benefitTitle">Use less of depleting fossil fuels</span>
-      <button v-on:click="showFossilFuelBenefit=!showFossilFuelBenefit">Learn more</button>
+      <br>
+      <button id="button2" v-on:click="showCleanAirBenefit=!showCleanAirBenefit">Learn more</button>
+    </div>
+    <div class="mainBenefit">
+      <p id="benefitsTitle3" class="benefitsTitle">Use less of depleting fossil fuels</p>
       <img alt="Fossil fuel" src="../assets/fossil_fuel.jpg" class="image">
-    </span>
+      <br>
+      <button id="button3" v-on:click="showFossilFuelBenefit=!showFossilFuelBenefit">Learn more</button>
+    </div>
   </div>
 
-  <div v-show="showMaintenanceBenefit" class="mainContainer">
+  <div v-show="showMaintenanceBenefit" class="mainContainer2">
     <div class="leftContainer">
       <iframe width="500" height="315" src="https://www.youtube.com/embed/X_11rlVF3Dg"></iframe>
     </div>
@@ -44,7 +47,7 @@
     </div>
   </div>
 
-  <div v-show="showCleanAirBenefit" class="mainContainer">
+  <div v-show="showCleanAirBenefit" class="mainContainer2">
     <div class="leftContainer">
       <img alt="How Nissan LEAF contributes to better air quality" src="../assets/nissan_air_pollution.jpg" id="cleanAirInfo">
     </div>
@@ -63,7 +66,7 @@
     </div>
   </div>
 
-  <div v-show="showFossilFuelBenefit" class="mainContainer">
+  <div v-show="showFossilFuelBenefit" class="mainContainer2">
     <div class="leftContainer">
       <co2-line-chart :width=505></co2-line-chart>
     </div>
@@ -82,7 +85,6 @@
       </div>
     </div>
   </div>
-  
 </div>
 </template>
 
@@ -118,20 +120,31 @@ export default {
 
 .image {
   height: 265px;
+}
+
+.mainBenefit {
+  flex: 0.5;
   margin: 20px;
 }
 
-.imageArea {
-  position: relative;
-  width: 40%;
-}
-
-.benefitTitle {
-  position: absolute;
-  top: -300px;
-  left: 21px;
+.benefitsTitle {
   font-size: 17px;
   font-weight: bold
+}
+
+#benefitsTitle1 {
+  position: relative;
+  left: -43px
+}
+
+#benefitsTitle2 {
+  position: relative;
+  left: -8px
+}
+
+#benefitsTitle3 {
+  position: relative;
+  left: -67px
 }
 
 #pageContent1 {
@@ -146,15 +159,26 @@ export default {
 }
 
 button {
-  position: absolute;
-  bottom: -30px;
-  left: 20px;
+  position: relative;
   background-color: black;
   color: white;
   font-size: 13px;
   border-radius: 10px;
   padding: 4px;
   outline: 0;
+  margin-top: 12px
+}
+
+#button1 {
+  left: -160px
+}
+
+#button2 {
+  left: -120px
+}
+
+#button3 {
+  left: -160px
 }
 
 .leftVerticalLine {
@@ -179,8 +203,15 @@ button {
   width: 504px;
 }
 
-.mainContainer {
-  display: flex
+.mainContainer1 {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mainContainer2 {
+  display: flex;
 }
 
 .leftContainer {
